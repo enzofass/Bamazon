@@ -1,12 +1,22 @@
 $(document).ready(function() {
   console.log("inside js");
+  renderProducts();
+});
+function renderProducts() {
+  $.get("/api/products", function(data) {
+    console.log("Products", data);
 
-  function renderProducts() {
-    $.get("/api/products", function(data) {
-      console.log("Products", data[0].product_name);
-
+    // click listener for Submit Button
+    document.querySelector("#check-out").addEventListener("click", function(e) {
+      e.preventDefault();
+      // get value of qty
       for (let i = 0; i < data.length; i++) {
-        $("#products-div").append(`
+        console.log(document.querySelector(`#qty-sel-${i + 1}`).value);
+      }
+    });
+
+    for (let i = 0; i < data.length; i++) {
+      $("#products-div").append(`
       <div class="row">
       <div class="col-3 bg-secondary">
         <div class="product-img img-fluid">
@@ -19,7 +29,6 @@ $(document).ready(function() {
       <div class="col-6 bg-primary">
         <div class="product-description">
           <span>${data[i].product_name}</span>
-          <!--lol-->
         </div>
       </div>
       <div class="col bg-success">
@@ -34,14 +43,12 @@ $(document).ready(function() {
       </div>
       <div class="col bg-danger">
         <div class="quantity-select">
-          <input type="number" name="quantity" min="0" max="100" />
+          <input id= "qty-sel-${i +
+            1}" type="number" name="quantity" min="0" max="100" />
         </div>
       </div>
     </div>
         `);
-      }
-    });
-  }
-
-  renderProducts();
-});
+    }
+  });
+}
