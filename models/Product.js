@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING
     },
     price: {
-      type: DataTypes.INTEGER
+      type: DataTypes.DECIMAL(13, 2)
     },
     stock_quantity: {
       type: DataTypes.INTEGER
