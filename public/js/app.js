@@ -2,7 +2,8 @@ $(document).ready(function() {
   getProducts();
   $("#products-div").on("click", ".btn-success", addToCart);
 });
-
+let shoppingCart = [];
+let totalSum = 0;
 const addToCart = function() {
   const id = $(this).attr("data-id");
   console.log("inside addToCart", id);
@@ -13,8 +14,18 @@ const updateCart = function(product) {
   console.log("inside updateCart", product, qtyOrdered);
 
   if (qtyOrdered != "" && qtyOrdered <= product.stock_quantity) {
+    console.log("product =>", product.stock_quantity);
+    product.stock_quantity -= qtyOrdered;
+    console.log("product =>", product.stock_quantity);
+    shoppingCart.push(product);
+    console.log(shoppingCart);
     alert("Items added to cart");
-    $(`.qty${product.id}`).val("");
+    $("#products-div").empty();
+    getProducts();
+
+    $(`#qty-sel-${product.id}`).val("");
+  } else if (qtyOrdered > product.stock_quantity) {
+    alert("Not enough stock");
   }
 };
 // Get products
