@@ -20,4 +20,18 @@ module.exports = function(app) {
       res.json(result);
     });
   });
+
+  app.get("/api/products/:id", function(req, res) {
+    db.Product.findOne({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(function(result) {
+        res.json(result);
+      })
+      .catch(function(err) {
+        res.json({ err: err });
+      });
+  });
 };
