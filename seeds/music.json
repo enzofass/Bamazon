@@ -1,0 +1,72 @@
+[
+  {
+    "product_name": "Santana | Santana",
+    "genre": "Rock",
+    "price": 21.25,
+    "stock_quantity": 10,
+    "img_url": "https://img.discogs.com/Bp_bBQ1QdqaRdyQHgoyyMWquJwI=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-737224-1374075557-2725.jpeg.jpg"
+  },
+  {
+    "product_name": "OutKast | Aquemini",
+    "genre": "Hip-Hip",
+    "price": 31.75,
+    "stock_quantity": 4,
+    "img_url": "https://img.discogs.com/zJZ1m-xOfqGS2Rmo7svcBHw1gsU=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-169325-1316298017.jpeg.jpg"
+  },
+  {
+    "product_name": "Bob Marley & The Wailers | Legend",
+    "genre": "Reggae",
+    "price": 19.99,
+    "stock_quantity": 12,
+    "img_url": "https://img.discogs.com/eY-3rCtGoHS7f7TqyNTSXe4bUGs=/fit-in/600x594/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-509235-1216168183.jpeg.jpg"
+  },
+  {
+    "product_name": "Hector Lavoe | La Voz",
+    "genre": "Latin",
+    "price": 15.25,
+    "stock_quantity": 6,
+    "img_url": "https://img.discogs.com/YiTZHxXzHTg_GYITMAGbq0AyVh4=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-1871724-1530394934-2885.jpeg.jpg"
+  },
+  {
+    "product_name": "Buena Vista Social Club | Buena Vista Social Club",
+    "genre": "Latin",
+    "price": 35.99,
+    "stock_quantity": 18,
+    "img_url": "https://img.discogs.com/eR6QgVXcWRq1XEjG1aGxqVRP0Ac=/fit-in/600x590/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-3321641-1325703634.jpeg.jpg"
+  },
+  {
+    "product_name": "The Jimi Hendrix Experience-Axis | Bold As Love",
+    "genre": "Rock",
+    "price": 26.25,
+    "stock_quantity": 23,
+    "img_url": "https://img.discogs.com/U-NfHAW6EZIpF_3xDhdhImvx2Gw=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-1197114-1368135151-6381.jpeg.jpg"
+  },
+  {
+    "product_name": "Wu-Tang Clan | Enter The Wu-Tang (36 Chambers)",
+    "genre": "Hip-Hop",
+    "price": 19.75,
+    "stock_quantity": 36,
+    "img_url": "https://img.discogs.com/5IpjJjDMxLXKxkP2PPEXgaLvyUA=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-153749-1185134135.jpeg.jpg"
+  },
+  {
+    "product_name": "Sizzla | Da Real Thing",
+    "genre": "Reggae",
+    "price": 15.75,
+    "stock_quantity": 2,
+    "img_url": "https://img.discogs.com/Ojw-ICyXCgqnS36qlpJPob5wo3w=/fit-in/288x285/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-618839-1139230765.jpeg.jpg"
+  },
+  {
+    "product_name": "Tom Petty And The Heartbreakers | Tom Petty And The Heartbreakers ",
+    "genre": "Rock",
+    "price": 23.99,
+    "stock_quantity": 12,
+    "img_url": "https://img.discogs.com/dyfA9dH_-7LhHwjL1O4Y4iZgQ2E=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-3178015-1319261360.jpeg.jpg"
+  },
+  {
+    "product_name": "Black Star | Mos Def & Talib Kweli Are Black Star",
+    "genre": "Hip-Hop",
+    "price": 33.25,
+    "stock_quantity": 4,
+    "img_url": "https://img.discogs.com/WlP7_hNTPh6HkSeiD9XqiCw9f5I=/fit-in/600x604/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-119096-1488947156-6586.jpeg.jpg"
+  }
+]
