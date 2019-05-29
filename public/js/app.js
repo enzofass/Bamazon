@@ -13,20 +13,38 @@ const updateCart = function(product) {
   const qtyOrdered = $(`#qty-sel-${product.id}`).val();
   console.log("inside updateCart", product, qtyOrdered);
 
-  if (qtyOrdered != "" && qtyOrdered <= product.stock_quantity) {
-    console.log("product =>", product.stock_quantity);
-    product.stock_quantity -= qtyOrdered;
-    console.log("product =>", product.stock_quantity);
+  if (qtyOrdered != ("" || 0) && qtyOrdered <= product.stock_quantity) {
     shoppingCart.push(product);
     console.log(shoppingCart);
-    alert("Items added to cart");
-    $("#products-div").empty();
-    getProducts();
+    cartModal(product, qtyOrdered);
 
     $(`#qty-sel-${product.id}`).val("");
   } else if (qtyOrdered > product.stock_quantity) {
     alert("Not enough stock");
   }
+};
+// checkout
+const cartModal = function(product, qty) {
+  renderModal(product, qty);
+  $("#cart-modal").modal();
+  updateInventory(product, qty);
+};
+// update inventory
+const updateInventory = function(product, qty) {
+  console.log("product =>", product.stock_quantity);
+  const updateProd = {
+    stock_quantity: (product.stock_quantity -= qty)
+  };
+  console.log("product =>", product.stock_quantity);
+  $.ajax({
+    method: "PUT",
+    url: "/api/products/" + product.id,
+    data: updateProd
+  }).then(function() {
+    console.log("update:", product);
+    $("#products-div").empty();
+    getProducts();
+  });
 };
 // Get products
 const getProducts = function() {
@@ -35,7 +53,12 @@ const getProducts = function() {
     renderProducts(productList);
   });
 };
-
+// render modal
+const renderModal = function(data, qty) {
+  $("#product-name").text(data.product_name);
+  $("#product-qty").text(qty);
+  $("#product-img").attr("src", data.img_url);
+};
 // render HTML
 const renderProducts = function(data) {
   console.log("Products", data);
@@ -56,27 +79,27 @@ const renderProducts = function(data) {
           <span>${data[i].product_name}</span>
         </div>
       </div>
-      <div class="col border rounded">
+      <div class="col-md col-sm border rounded">
         <div class="product-price">
           <span>$${data[i].price}</span>
         </div>
       </div>
-      <div class="col border rounded">
+      <div class="col-md col-sm border rounded">
         <div class="quantity-available">
           <span>${data[i].stock_quantity}</span>
         </div>
       </div>
-      <div class="col border rounded">
+      <div class="col-md col-sm border rounded">
         <div class="quantity-select">
           <input id= "qty-sel-${i +
             1}" type="number" name="quantity" min="0" max="100" />
         </div>
       </div>
-      <div class="col border rounded">
+      <div class="col-md col-sm border rounded">
         <div class="check-out">
         <button class = "btn btn-success" data-id=${
           data[i].id
-        }>Add to Cart</button>
+        }>Check-Out</button>
         </div>
       </div>
     </div>

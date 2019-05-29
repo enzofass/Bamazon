@@ -9,6 +9,11 @@
       href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css"
       rel="stylesheet"
     />
+    <!-- Font Awesome Glyphicons -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"
+    />
     <link
       rel="stylesheet"
       href="css/style.css"
@@ -71,16 +76,16 @@
         <div class="col-5">
           <span>Title</span>
         </div>
-        <div class="col">
+        <div class="col-md col-sm">
           <span>Price</span>
         </div>
-        <div class="col">
+        <div class="col-md col-sm">
           <span>Stock</span>
         </div>
-        <div class="col">
+        <div class="col-md col-sm">
           <span>Qty</span>
         </div>
-        <div class="col">
+        <div class="col-md col-sm">
           <span></span>
         </div>
       </div>
@@ -99,20 +104,21 @@
       </footer>
 
       <!-- Modal -->
-      <div id="results-modal" class="modal fade" role="dialog">
+      <div id="cart-modal" class="modal fade" role="dialog">
         <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content">
             <div class="modal-header">
+              <h2 class="modal-title"><strong>Checkout</strong></h2>
               <button type="button" class="close" data-dismiss="modal">
                 &times;
               </button>
-              <h2 class="modal-title"><strong>Best Match</strong></h2>
             </div>
             <div class="modal-body">
-              <h2 id="match-name"></h2>
+              <h3>Title: <span id="product-name"></span></h3>
+              <h4>Qty: <span id="product-qty"></span></h4>
               <img
-                id="match-img"
+                id="product-img"
                 src="https://via.placeholder.com/150"
                 alt=""
               />
@@ -123,7 +129,7 @@
                 class="btn btn-default"
                 data-dismiss="modal"
               >
-                Close
+                Confirm Purchase
               </button>
             </div>
           </div>

@@ -34,4 +34,19 @@ module.exports = function(app) {
         res.json({ err: err });
       });
   });
+
+  // PUT route for updating posts
+  app.put("/api/products/:id", function(req, res) {
+    db.Product.update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(function(result) {
+        res.json({ message: "Updating complete" });
+      })
+      .catch(function(err) {
+        res.json({ error: err });
+      });
+  });
 };
