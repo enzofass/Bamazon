@@ -10,21 +10,26 @@ module.exports = function(app) {
     });
   });
 
+  // Get one by ID
+  app.get("/api/products/:id", function(req, res) {
+    db.Product.findOne({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(function(result) {
+        res.json(result);
+      })
+      .catch(function(err) {
+        res.json({ err: err });
+      });
+  });
+
   // Get product for genre
   app.get("/api/products/genre/:genre", function(req, res) {
     db.Product.findAll({
       where: {
         genre: req.params.genre
-      }
-    }).then(function(result) {
-      res.json(result);
-    });
-  });
-
-  app.get("/api/products/:id", function(req, res) {
-    db.Product.findOne({
-      where: {
-        id: req.params.id
       }
     })
       .then(function(result) {

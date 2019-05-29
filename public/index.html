@@ -61,10 +61,11 @@
               Sort By Genre
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Hip-Hop</a>
-              <a class="dropdown-item" href="#">Rock</a>
-              <a class="dropdown-item" href="#">Latin</a>
-              <a class="dropdown-item" href="#">Reggae</a>
+              <a id="Hip-Hop" class="dropdown-item" href="#">Hip-Hop</a>
+              <a id="Rock" class="dropdown-item" href="#">Rock</a>
+              <a id="Latin" class="dropdown-item" href="#">Latin</a>
+              <a id="Reggae" class="dropdown-item" href="#">Reggae</a>
+              <a id="All" class="dropdown-item" href="#">All</a>
             </div>
           </div>
         </div>
@@ -115,8 +116,9 @@
               </button>
             </div>
             <div class="modal-body">
-              <h3>Title: <span id="product-name"></span></h3>
-              <h4>Qty: <span id="product-qty"></span></h4>
+              <h4>Title: <span id="product-name"></span></h4>
+              <h5>Qty: <span id="product-qty"></span></h5>
+              <h5>Sub-Total: $<span id="product-total"></span></h5>
               <img
                 id="product-img"
                 src="https://via.placeholder.com/150"
@@ -125,6 +127,7 @@
             </div>
             <div class="modal-footer">
               <button
+                id="confirm-purchase"
                 type="button"
                 class="btn btn-default"
                 data-dismiss="modal"

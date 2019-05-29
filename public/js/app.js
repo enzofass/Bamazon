@@ -1,23 +1,33 @@
 $(document).ready(function() {
   getProducts();
   $("#products-div").on("click", ".btn-success", addToCart);
+  $(".dropdown-item").on("click", sortByGenre);
 });
 let shoppingCart = [];
 let totalSum = 0;
+const sortByGenre = function() {
+  const genre = $(this).attr("id");
+  console.log("inside sortByGenre", genre);
+  $.get(`/api/products/genre/${genre}`).then(function(data) {
+    $("#products-div")
+      .empty()
+      .after(renderProducts(data));
+  });
+};
 const addToCart = function() {
   const id = $(this).attr("data-id");
   console.log("inside addToCart", id);
-  $.get(`/api/products/${id}`).then(updateCart);
+  $.get(`/api/products/${id}`).then(function(id) {
+    console.log("before updateCart", id);
+    updateCart(id);
+  });
 };
 const updateCart = function(product) {
-  const qtyOrdered = $(`#qty-sel-${product.id}`).val();
+  let qtyOrdered = $(`#qty-sel-${product.id}`).val();
   console.log("inside updateCart", product, qtyOrdered);
 
   if (qtyOrdered != ("" || 0) && qtyOrdered <= product.stock_quantity) {
-    shoppingCart.push(product);
-    console.log(shoppingCart);
     cartModal(product, qtyOrdered);
-
     $(`#qty-sel-${product.id}`).val("");
   } else if (qtyOrdered > product.stock_quantity) {
     alert("Not enough stock");
@@ -27,7 +37,9 @@ const updateCart = function(product) {
 const cartModal = function(product, qty) {
   renderModal(product, qty);
   $("#cart-modal").modal();
-  updateInventory(product, qty);
+  $("#confirm-purchase").on("click", function() {
+    updateInventory(product, qty);
+  });
 };
 // update inventory
 const updateInventory = function(product, qty) {
@@ -42,8 +54,9 @@ const updateInventory = function(product, qty) {
     data: updateProd
   }).then(function() {
     console.log("update:", product);
-    $("#products-div").empty();
-    getProducts();
+    $("#products-div")
+      .empty()
+      .after(getProducts());
   });
 };
 // Get products
@@ -57,6 +70,7 @@ const getProducts = function() {
 const renderModal = function(data, qty) {
   $("#product-name").text(data.product_name);
   $("#product-qty").text(qty);
+  $("#product-total").text(qty * data.price);
   $("#product-img").attr("src", data.img_url);
 };
 // render HTML
@@ -76,7 +90,8 @@ const renderProducts = function(data) {
       </div>
       <div class="col-5 border rounded">
         <div class="product-description">
-          <span>${data[i].product_name}</span>
+          <span>${data[i].product_name}</span><br>
+          <span>${data[i].genre}</span>
         </div>
       </div>
       <div class="col-md col-sm border rounded">
